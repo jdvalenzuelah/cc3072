@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/zsh
 
 # Usage ./ip_list.sh <url>
 #    eg: ./ip_list.sh uvg.edu.gt

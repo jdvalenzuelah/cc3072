@@ -1,0 +1,16 @@
+EHLO localhost
+AUTH LOGIN
+ZGF2YWxlbnp1ZWxhNTU4NUBnbWFpbC5jb20=
+ZWxlZmFudGVz
+MAIL FROM:<test@gmail.com>
+RCPT TO:<test_rep@gmail.com>
+DATA
+From: [JV] <test@gmail.com>
+To: <test_rep@gmail.com>
+Date: Mon, 12 Apr 2010 14:21:26 -0400
+Subject: JV- CC3072
+Enviado desde ncat por smtp
+
+JV - 171001
+.
+QUIT
