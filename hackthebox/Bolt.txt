@@ -1,0 +1,327 @@
+sudo nmap -sC -sS -sV 10.10.11.114
+Starting Nmap 7.91 ( https://nmap.org ) at 2021-11-03 20:27 CST
+Nmap scan report for 10.10.11.114 (10.10.11.114)
+Host is up (0.067s latency).
+Not shown: 997 closed ports
+PORT    STATE SERVICE  VERSION
+22/tcp  open  ssh      OpenSSH 8.2p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   3072 4d:20:8a:b2:c2:8c:f5:3e:be:d2:e8:18:16:28:6e:8e (RSA)
+|   256 7b:0e:c7:5f:5a:4c:7a:11:7f:dd:58:5a:17:2f:cd:ea (ECDSA)
+|_  256 a7:22:4e:45:19:8e:7d:3c:bc:df:6e:1d:6c:4f:41:56 (ED25519)
+80/tcp  open  http     nginx 1.18.0 (Ubuntu)
+|_http-server-header: nginx/1.18.0 (Ubuntu)
+|_http-title:     Starter Website -  About 
+443/tcp open  ssl/http nginx 1.18.0 (Ubuntu)
+|_http-server-header: nginx/1.18.0 (Ubuntu)
+| http-title: Passbolt | Open source password manager for teams
+|_Requested resource was /auth/login?redirect=%2F
+| ssl-cert: Subject: commonName=passbolt.bolt.htb/organizationName=Internet Widgits Pty Ltd/stateOrProvinceName=Some-State/countryName=AU
+| Not valid before: 2021-02-24T19:11:23
+|_Not valid after:  2022-02-24T19:11:23
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 26.16 seconds
+
+80 -> stater site
+443 -> passbolt -> requires_email
+
+http://10.10.11.114/contact -> support@bolt.htb sales@bolt.htb
+
+http://10.10.11.114/register -> 500 error
+
+dirbuster -l /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt -u http://10.10.11.114
+Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
+Starting OWASP DirBuster 1.0-RC1
+Starting dir/file list based brute forcing
+Dir found: / - 200
+File found: /index.html - 200
+File found: /contact - 200
+File found: /services - 200
+File found: /pricing - 200
+File found: /download - 200
+File found: /static/assets/img/brand/light.svg - 200
+File found: /static/assets/img/brand/dark.svg - 200
+File found: /static/assets/img/illustrations/about-illustration.svg - 200
+File found: /static/assets/img/signature.svg - 200
+File found: /static/assets/img/themesberg.svg - 200
+File found: /static/assets/img/illustrations/feature.svg - 200
+File found: /static/assets/img/pages/design.svg - 200
+File found: /static/assets/img/pages/technologies.svg - 200
+File found: /static/assets/img/clients/paypal.svg - 200
+File found: /static/assets/img/clients/airbnb.svg - 200
+File found: /static/assets/img/pages/code.svg - 200
+File found: /static/assets/img/clients/corsair.svg - 200
+File found: /static/assets/img/pages/support.svg - 200
+File found: /static/assets/vendor/jquery/dist/jquery.min.js - 200
+File found: /static/assets/img/clients/google.svg - 200
+File found: /static/assets/img/clients/forbes.svg - 200
+File found: /static/assets/img/clients/elastic.svg - 200
+File found: /static/assets/img/clients/pinterest.svg - 200
+File found: /static/assets/vendor/popper.js/dist/umd/popper.min.js - 200
+File found: /static/assets/img/clients/docker.svg - 200
+File found: /static/assets/img/clients/university-of-chicago.svg - 200
+File found: /static/assets/img/clients/business-school.svg - 200
+File found: /static/assets/vendor/bootstrap/dist/js/bootstrap.min.js - 200
+File found: /static/assets/img/clients/ebay.svg - 200
+File found: /static/assets/vendor/headroom.js/dist/headroom.min.js - 200
+File found: /static/assets/vendor/onscreen/dist/on-screen.umd.min.js - 200
+File found: /static/assets/img/clients/northwestern.svg - 200
+File found: /static/assets/vendor/nouislider/distribute/nouislider.min.js - 200
+File found: /static/assets/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js - 200
+File found: /static/assets/vendor/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js - 200
+File found: /static/assets/vendor/waypoints/lib/jquery.waypoints.min.js - 200
+File found: /static/assets/vendor/jarallax/dist/jarallax.min.js - 200
+File found: /static/assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js - 200
+File found: /static/assets/js/pixel.js - 200
+File found: /static/assets/vendor/vivus/dist/vivus.min.js - 200
+
+http://10.10.11.114/download
+
+tar -xf image.tar
+
+cd  3350815d3bdf21771408f91da4551ca6f4e82edce74e9352ed75c2e8a5e68162
+tar -xf layer.tar
+cd app/base/__pycache__
+
+strings forms.cpython-36.pyc     
+m       Z
+Copyright (c) 2019 - present AppSeed.us
+        FlaskForm)
+        TextField
+PasswordField)
+InputRequired
+Email
+DataRequiredc
+        LoginForm
+UsernameZ
+username_login)
+validators
+PasswordZ       pwd_loginN)
+__name__
+__module__
+__qualname__r
+usernamer
+password
+/app/base/forms.pyr
+CreateAccountFormr
+username_create)
+email_creater
+pwd_createN)
+emailr
+__doc__Z        flask_wtfr
+wtformsr
+wtforms.validatorsr
+<module>
+
+strings routes.cpython-36.pyc 
+9oB`
+m       Z       m
+j d!
+d"d#
+Z#d     S
+)$z)
+Copyright (c) 2019 - present AppSeed.us
+jsonify
+render_template
+redirect
+request
+url_for)
+current_user
+login_required
+login_user
+logout_user)
+login_manager)
+        blueprint)
+        LoginForm
+CreateAccountForm)
+User)
+compare_digestN
+base_blueprint.login)
+/app/base/routes.py
+route_default
+/login
+POST)
+methodsc
+rtt     |
+login
+username
+password)
+utf-8z
+base_blueprint.route_defaultz
+accounts/login.htmlz
+Wrong user or password)
+form)
+home_blueprint.index)
+query
+        filter_by
+firstr
+decode
+compare_hash
+cryptr
+is_authenticated)
+login_formr
+userZ
+stored_passwordr
+z       /registerc
+registerr
+email)
+accounts/register.htmlz
+Username already registeredF)
+successr
+Email already registeredz.User created please <a href="/login">login</a>T)
+session
+commit)
+create_account_formr
+datar&
+/logoutc
+base_blueprint.login)
+logout^
+page-403.htmli
+unauthorized_handlere
+page-403.htmli
+errorr
+access_forbiddeni
+page-404.htmli
+not_found_errorm
+page-500.htmli
+internal_errorq
+__doc__
+flaskr
+flask_loginr
+appr
+app.baser
+app.base.formsr
+app.base.modelsr
+hmacr
+router
+errorhandlerr1
+<module>
+
+cd 187e74706bdc9cb3f44dca230ac7c9962288a5b8bd579c47a36abf64f35c2950
+tar -xf layer.tar
+
+cat etc/passw
+root:x:0:0:root:/root:/bin/ash
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
+news:x:9:13:news:/usr/lib/news:/sbin/nologin
+uucp:x:10:14:uucp:/var/spool/uucppublic:/sbin/nologin
+operator:x:11:0:operator:/root:/bin/sh
+man:x:13:15:man:/usr/man:/sbin/nologin
+postmaster:x:14:12:postmaster:/var/spool/mail:/sbin/nologin
+cron:x:16:16:cron:/var/spool/cron:/sbin/nologin
+ftp:x:21:21::/var/lib/ftp:/sbin/nologin
+sshd:x:22:22:sshd:/dev/null:/sbin/nologin
+at:x:25:25:at:/var/spool/cron/atjobs:/sbin/nologin
+squid:x:31:31:Squid:/var/cache/squid:/sbin/nologin
+xfs:x:33:33:X Font Server:/etc/X11/fs:/sbin/nologin
+games:x:35:35:games:/usr/games:/sbin/nologin
+postgres:x:70:70::/var/lib/postgresql:/bin/sh
+cyrus:x:85:12::/usr/cyrus:/sbin/nologin
+vpopmail:x:89:89::/var/vpopmail:/sbin/nologin
+ntp:x:123:123:NTP:/var/empty:/sbin/nologin
+smmsp:x:209:209:smmsp:/var/spool/mqueue:/sbin/nologin
+guest:x:405:100:guest:/dev/null:/sbin/nologin
+nobody:x:65534:65534:nobody:/:/sbin/nologin
+
+cd 1be1cefeda09a601dd9baa310a3704d6309dc28f6d213867911cd2257b95677c
+tar -xf layer.tar
+
+cd 2265c5097f0b290a53b7556fd5d721ffad8a4921bfc2a6e378c04859185d27fa
+tar -xf layer.tar
+cd app/base
+
+using flask
+
+cd 3049862d975f250783ddb4ea0e9cb359578da4a06bf84f05a7ea69ad8d508dab
+tar -xf layer.tar
+
+cd 3d7e9c6869c056cdffaace812b4ec198267e26e03e9be25ed81fe92ad6130c6b
+tar -xf layer.tar
+
+cd 41093412e0da959c80875bb0db640c1302d5bcdffec759a3a5670950272789ad
+tar -xf layer.tar
+cd app
+
+cd 745959c3a65c3899f9e1a5319ee5500f199e0cadf8d487b92e2f297441f8c5cf
+
+
+import os
+from   decouple import config
+
+class Config(object):
+
+    basedir    = os.path.abspath(os.path.dirname(__file__))
+
+    # Set up the App SECRET_KEY
+    SECRET_KEY = config('SECRET_KEY', default='S#perS3crEt_007')
+
+    # This will create a file in <app> FOLDER
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'db.sqlite3')
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    MAIL_SERVER = 'localhost'
+    MAIL_PORT = 25
+    MAIL_USE_TLS = False
+    MAIL_USE_SSL = False
+    MAIL_USERNAME = None
+    MAIL_PASSWORD = None
+    DEFAULT_MAIL_SENDER = 'support@bolt.htb'
+
+class ProductionConfig(Config):
+    DEBUG = False
+
+    # Security
+    SESSION_COOKIE_HTTPONLY  = True
+    REMEMBER_COOKIE_HTTPONLY = True
+    REMEMBER_COOKIE_DURATION = 3600
+
+    # PostgreSQL database
+    SQLALCHEMY_DATABASE_URI = '{}://{}:{}@{}:{}/{}'.format(
+        config( 'DB_ENGINE'   , default='postgresql'    ),
+        config( 'DB_USERNAME' , default='appseed'       ),
+        config( 'DB_PASS'     , default='pass'          ),
+        config( 'DB_HOST'     , default='localhost'     ),
+        config( 'DB_PORT'     , default=5432            ),
+        config( 'DB_NAME'     , default='appseed-flask' )
+    )
+
+bind = '0.0.0.0:5005'
+workers = 1
+accesslog = '-'
+loglevel = 'debug'
+capture_output = True
+enable_stdio_inheritance = True
+
+cd 9a3bb655a4d35896e951f1528578693762650f76d7fb3aa791ac8eec9f14bc77
+
+cd a4ea7da8de7bfbf327b56b0cb794aed9a8487d31e588b75029f6b527af2976f2
+
+ls
+db.sqlite3  json  layer.tar  root  tmp  VERSION
+
+select * from user
+id	username	email	password	email_confirmed	profile_update
+1	admin	admin@bolt.htb	$1$sm1RceCh$rSd3PygnS/6jlFDfF2J5q.	NULL	NULL
+
+cd d693a85325229cdf0fecd248731c346edbc4e02b0c6321e256ffc588a3e6cb26
+
+password = crypt.crypt(password,crypt.METHOD_MD5)
+return ( password.encode('utf-8') )
+
+john -format=md5crypt --wordlist=/usr/share/wordlists/rockyou.txt hashed.txt
+
+deadbolt
+
+http://10.10.11.114/admin/home
+
+http://10.10.11.114/admin/mail
+
+https://appseed.us/admin-dashboards/flask-dashboard-adminlte

