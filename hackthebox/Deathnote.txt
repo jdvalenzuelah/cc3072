@@ -2853,8 +2853,6 @@ l
 
 python3 -c 'import pty;  pty.spawn("/bin/bash")'
 
-
-
 www-data@deathnote:/home/l$ cat user.txt
 cat user.txt
 ++++++++++[>+>+++>+++++++>++++++++++<<<<-]>>>>+++++.<<++.>>+++++++++++.------------.+.+++++.---.<<.>>++++++++++.<<.>>--------------.++++++++.+++++.<<.>>.------------.---.<<.>>++++++++++++++.-----------.---.+++++++..<<.++++++++++++.------------.>>----------.+++++++++++++++++++.-.<<.>>+++++.----------.++++++.<<.>>++.--------.-.++++++.<<.>>------------------.+++.<<.>>----.+.++++++++++.-------.<<.>>+++++++++++++++.-----.<<.>>----.--.+++..<<.>>+.--------.<<.+++++++++++++.>>++++++.--.+++++++++.-----------------.
@@ -3020,6 +3018,10 @@ ssh kira@deathnote.vuln
 kira@deathnote:~$ cat kira.txt 
 cGxlYXNlIHByb3RlY3Qgb25lIG9mIHRoZSBmb2xsb3dpbmcgCjEuIEwgKC9vcHQpCjIuIE1pc2EgKC92YXIp
 
+echo -n cGxlYXNlIHByb3RlY3Qgb25lIG9mIHRoZSBmb2xsb3dpbmcgCjEuIEwgKC9vcHQpCjIuIE1pc2EgKC92YXIp | base64 -d
+please protect one of the following
+1. L (/opt)
+2. Misa (/var)%
 
 kira@deathnote:~$ sudo -l
 [sudo] password for kira: 
